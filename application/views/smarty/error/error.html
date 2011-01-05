@@ -1,0 +1,27 @@
+<h1>Templated error page</h1>
+
+<h2>Request</h2>
+<ul>
+    {foreach from=$request->getParams() key=param item=value}
+    <li>
+        <b>{$param}:</b> {$value} 
+    </li>
+    {/foreach}
+</ul>
+
+<h2>Error Message</h2>
+{$message}
+
+{if isset($exception)}
+    <h2>Exception</h2>
+    <p>
+        {$exception->getMessage()}
+    </p>
+    {foreach from=$exception->getTrace() item=item}
+        <b>{$item['file']}</b><br/>
+        {foreach from=$item key=key item=value}
+            {$key} = {$value} <br/>
+        {/foreach}
+        <br/>
+    {/foreach}
+{/if}

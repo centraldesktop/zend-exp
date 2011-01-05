@@ -1,0 +1,31 @@
+{extends "_common/base.html"}
+
+{block "head"}
+<!-- application styles -->
+<!-- application scripts -->
+{block "head-app"}{/block}
+{/block}
+
+{block "body"}
+<div style="margin: 20px; background: #D0E2D9">
+    <div style="background: #90B5A4">
+        {$tr->_('This is part of <b>application template base</b>')}
+    </div>
+    <div style="padding:1px">
+        <div style="margin: 20px;">
+            {block "body-app"}{/block}
+        </div>
+    </div>  
+</div>
+
+{if count($messages)}
+<ul style="position:absolute; left:50%; top:0; margin: 0 0 0 -150px; padding: 20px; width:300; background:#fff; border: 1px solid #777;">
+    {foreach from=$messages item=message}
+    <li>
+       [status: {$message.status}] {$message.message} 
+    </li>
+    {/foreach}
+</ul>
+{/if}
+  
+{/block}

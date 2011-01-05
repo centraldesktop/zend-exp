@@ -1,0 +1,32 @@
+{extends "_common/base-app.html"}
+
+{block "title" append}— items in folder{/block}
+
+{block "head-app"}
+    <!-- view styles -->
+    <!-- view scripts -->
+{/block}
+
+{block "body-app"}
+    <h3 style="display:inline; padding-right:100px;">{$folder.title}</h3>
+    Format: 
+    <a href="/folder/{$folder.pk_id}.html">HTML</a> |
+    <a href="/folder/{$folder.pk_id}.xml">XML</a> |
+    <a href="/folder/{$folder.pk_id}.json">JSON</a>
+    <p>
+        <b>{$tr->_('items in folder')}</b>
+    </p>
+    <ul>
+        {foreach from=$items item=item}
+        <li>
+            {$item.title}
+            <span style="padding:0 20px">
+                <a href="/item/{$item.pk_id}">html</a>
+                <a href="/item/{$item.pk_id}.xml">XML</a>
+                <a href="/item/{$item.pk_id}.json">JSON</a>
+            </span>
+            <a href="/item/{$item.pk_id}/delete">{$tr->_('delete')}</a>
+        </li>
+        {/foreach}
+    </ul>
+{/block}

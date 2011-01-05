@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+        Central Desktop {block name="title"}{/block}
+    </title>
+    
+    <!-- general styles -->
+    <!-- general scripts -->
+    
+    {block name="head"}{/block}
+</head>
+<body>
+    <div style="margin: 20px; background: #ece5c9">
+        <div style="background: #e4ce98">
+            {$tr->_('This is part of <b>general template base</b>')}
+        </div>
+        <div style="padding:1px">
+            {block name="body"}{/block}
+        </div>
+    </div>
+</body>
+</html>    
